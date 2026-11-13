@@ -289,7 +289,7 @@ Two-phase: Build bitmap of matching rows, then fetch in physical order
 ```sql
 EXPLAIN SELECT f.title, p.name FROM bluebox.film f
 JOIN bluebox.film_cast fc ON f.film_id = fc.film_id
-JOIN person p ON fc.person_id = p.person_id
+JOIN bluebox.person p ON fc.person_id = p.person_id
 WHERE f.film_id = 155;
 ```
 
@@ -932,8 +932,8 @@ for customer in get_customers():
 ```sql
 -- GOOD: Single query
 SELECT c.*, r.* 
-FROM customer c 
-LEFT JOIN rental r ON c.customer_id = r.customer_id;
+FROM bluebox.customer c 
+LEFT JOIN bluebox.rental r ON c.customer_id = r.customer_id;
 ```
 
 ---
