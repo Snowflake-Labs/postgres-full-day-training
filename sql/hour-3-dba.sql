@@ -142,6 +142,7 @@ DROP PUBLICATION film_pub;
 
 -- postgresql.conf
 max_connections = 100        -- Maximum concurrent connections
+reserved_connections = 0 -- pg_use_reserved_connections
 superuser_reserved_connections = 3
 
 -- View current connections

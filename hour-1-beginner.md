@@ -7,7 +7,6 @@ autoscale: true
 <br>
 <br>
 ## Hour 1 of PostgreSQL Training Day
-### SCaLE LA 2026
 
 ---
 
