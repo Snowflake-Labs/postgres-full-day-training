@@ -6,7 +6,6 @@ autoscale: true
 <br>
 <br>
 ### Hour 5 of PostgreSQL Training Day
-### SCaLE LA 2026
 
 ---
 
@@ -206,9 +205,9 @@ Each operation can use up to work_mem
 ```sql
 -- This query might use 4 x work_mem
 SELECT f.title, p.name, COUNT(*) as appearances
-FROM film f
-JOIN film_cast fc ON f.film_id = fc.film_id  -- hash join
-JOIN person p ON fc.person_id = p.person_id  -- hash join
+FROM bluebox.film f
+JOIN bluebox.film_cast fc ON f.film_id = fc.film_id  -- hash join
+JOIN bluebox.person p ON fc.person_id = p.person_id  -- hash join
 GROUP BY f.title, p.name                      -- hash aggregate
 ORDER BY appearances DESC;                    -- sort
 ```

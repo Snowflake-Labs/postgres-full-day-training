@@ -6,7 +6,6 @@ autoscale: true
 <br>
 <br>
 ### Hour 6 of PostgreSQL Training Day
-### SCaLE LA 2026
 
 ---
 
@@ -184,7 +183,7 @@ ROLLBACK;
 ## EXPLAIN with BUFFERS
 
 ```sql
-EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM film WHERE vote_average > 8;
+EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM bluebox.film WHERE vote_average > 8;
 ```
 
 ```
@@ -288,9 +287,9 @@ Two-phase: Build bitmap of matching rows, then fetch in physical order
 ## Join Operations - Nested Loop
 
 ```sql
-EXPLAIN SELECT f.title, p.name FROM film f
-JOIN film_cast fc ON f.film_id = fc.film_id
-JOIN person p ON fc.person_id = p.person_id
+EXPLAIN SELECT f.title, p.name FROM bluebox.film f
+JOIN bluebox.film_cast fc ON f.film_id = fc.film_id
+JOIN bluebox.person p ON fc.person_id = p.person_id
 WHERE f.film_id = 155;
 ```
 
@@ -897,7 +896,7 @@ WHERE customer_id = 100
 
 ```sql
 -- List all hypothetical indexes
-SELECT * FROM hypopg_list_indexes();
+SELECT * FROM hypopg_list_indexes;
 
 -- Remove all hypothetical indexes
 SELECT hypopg_reset();
@@ -933,8 +932,8 @@ for customer in get_customers():
 ```sql
 -- GOOD: Single query
 SELECT c.*, r.* 
-FROM customer c 
-LEFT JOIN rental r ON c.customer_id = r.customer_id;
+FROM bluebox.customer c 
+LEFT JOIN bluebox.rental r ON c.customer_id = r.customer_id;
 ```
 
 ---

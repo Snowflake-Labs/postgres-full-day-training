@@ -5,8 +5,7 @@
 -- Slide 4: What is EXPLAIN?
 -- ----------------------------
 
-EXPLAIN 
-SELECT * FROM bluebox.film WHERE vote_average > 8;
+EXPLAIN SELECT * FROM bluebox.film WHERE vote_average > 8;
 
 
 -- ---------------------------
@@ -14,16 +13,13 @@ SELECT * FROM bluebox.film WHERE vote_average > 8;
 -- ---------------------------
 
 -- Basic plan (estimated only)
-EXPLAIN 
-SELECT * FROM bluebox.film WHERE vote_average > 8;
+EXPLAIN SELECT * FROM bluebox.film WHERE vote_average > 8;
 
 -- With actual execution times
-EXPLAIN ANALYZE 
-SELECT * FROM bluebox.film WHERE vote_average > 8;
+EXPLAIN ANALYZE SELECT * FROM bluebox.film WHERE vote_average > 8;
 
 -- With buffer/IO statistics
-EXPLAIN (ANALYZE, BUFFERS) 
-SELECT * FROM bluebox.film WHERE vote_average > 8;
+EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM bluebox.film WHERE vote_average > 8;
 
 -- All the details in text format
 EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT) 
@@ -35,20 +31,16 @@ SELECT * FROM bluebox.film WHERE vote_average > 8;
 -- ----------------------------------
 
 -- Default text format
-EXPLAIN (FORMAT TEXT) 
-SELECT * FROM bluebox.film LIMIT 5;
+EXPLAIN (FORMAT TEXT) SELECT * FROM bluebox.film LIMIT 5;
 
 -- JSON - great for programmatic parsing
-EXPLAIN (FORMAT JSON) 
-SELECT * FROM bluebox.film LIMIT 5;
+EXPLAIN (FORMAT JSON) SELECT * FROM bluebox.film LIMIT 5;
 
 -- YAML - human readable structured output
-EXPLAIN (FORMAT YAML) 
-SELECT * FROM bluebox.film LIMIT 5;
+EXPLAIN (FORMAT YAML) SELECT * FROM bluebox.film LIMIT 5;
 
 -- XML - for XML tooling
-EXPLAIN (FORMAT XML) 
-SELECT * FROM bluebox.film LIMIT 5;
+EXPLAIN (FORMAT XML) SELECT * FROM bluebox.film LIMIT 5;
 
 
 -- --------------------------------
@@ -72,13 +64,11 @@ SELECT * FROM bluebox.film WHERE vote_average > 8;
 -- ------------------------------------------
 
 -- This will DELETE your data!
-EXPLAIN ANALYZE 
-DELETE FROM bluebox.customer;
+EXPLAIN ANALYZE DELETE FROM bluebox.customer;
 
 -- Use ROLLBACK for data-modifying queries
 BEGIN;
-EXPLAIN ANALYZE 
-DELETE FROM bluebox.customer;
+EXPLAIN ANALYZE DELETE FROM bluebox.customer;
 ROLLBACK;
 
 
@@ -86,18 +76,16 @@ ROLLBACK;
 -- Slide 11: EXPLAIN with BUFFERS
 -- ---------------------------------
 
-EXPLAIN (ANALYZE, BUFFERS) 
-SELECT * FROM film WHERE vote_average > 8;
+EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM bluebox.film WHERE vote_average > 8;
 
 
 -- ------------------------------------------
 -- Slide 17: Join Operations - Nested Loop
 -- ------------------------------------------
 
-EXPLAIN 
-SELECT f.title, p.name FROM film f
-JOIN film_cast fc ON f.film_id = fc.film_id
-JOIN person p ON fc.person_id = p.person_id
+EXPLAIN SELECT f.title, p.name FROM bluebox.film f
+JOIN bluebox.film_cast fc ON f.film_id = fc.film_id
+JOIN bluebox.person p ON fc.person_id = p.person_id
 WHERE f.film_id = 155;
 
 
@@ -438,7 +426,7 @@ WHERE customer_id = 100
 -- ----------------------------------------
 
 -- List all hypothetical indexes
-SELECT * FROM hypopg_list_indexes();
+SELECT * FROM hypopg_list_indexes;
 
 -- Remove all hypothetical indexes
 SELECT hypopg_reset();
@@ -453,8 +441,8 @@ CREATE INDEX idx_film_vote_avg ON bluebox.film(vote_average);
 
 -- GOOD: Single query
 SELECT c.*, r.* 
-FROM customer c 
-LEFT JOIN rental r ON c.customer_id = r.customer_id;
+FROM bluebox.customer c 
+LEFT JOIN bluebox.rental r ON c.customer_id = r.customer_id;
 
 
 -- ------------------------------

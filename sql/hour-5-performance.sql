@@ -21,7 +21,7 @@ shared_buffers = 8GB   -- For 32GB RAM system
 -- Set higher = planner prefers index scans
 -- Set lower = planner prefers sequential scans
 
-effective_cache_size = 24GB  -- For 32GB system
+effective_cache_size = 16GB  -- For 32GB system
 
 
 -- ----------------------------
@@ -67,9 +67,9 @@ SHOW work_mem;  -- Default: 4MB
 
 -- This query might use 4 x work_mem
 SELECT f.title, p.name, COUNT(*) as appearances
-FROM film f
-JOIN film_cast fc ON f.film_id = fc.film_id  -- hash join
-JOIN person p ON fc.person_id = p.person_id  -- hash join
+FROM bluebox.film f
+JOIN bluebox.film_cast fc ON f.film_id = fc.film_id  -- hash join
+JOIN bluebox.person p ON fc.person_id = p.person_id  -- hash join
 GROUP BY f.title, p.name                      -- hash aggregate
 ORDER BY appearances DESC;                    -- sort
 
