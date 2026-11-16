@@ -1,6 +1,6 @@
 autoscale: true
 
-[.footer: Slide 1 / 79]
+[.footer: Slide 1 / 81]
 
 ## Postgres DBA Basics
 <br>
@@ -9,7 +9,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 2 / 79]
+[.footer: Slide 2 / 81]
 
 ## Hour 3 Topics
 
@@ -38,17 +38,15 @@ Sample database:
 
 postgres.app for macs will create a psql connection
 
-
-
 ---
 
-[.footer: Slide 3 / 79]
+[.footer: Slide 3 / 81]
 
 ## Postgres Hosting Options
 
 ---
 
-[.footer: Slide 4 / 79]
+[.footer: Slide 4 / 81]
 
 ## Where to Run Postgres
 
@@ -71,7 +69,7 @@ postgres.app for macs will create a psql connection
 
 ---
 
-[.footer: Slide 5 / 79]
+[.footer: Slide 5 / 81]
 
 ## Self-Managed vs Managed
 
@@ -85,7 +83,7 @@ postgres.app for macs will create a psql connection
 
 ---
 
-[.footer: Slide 6 / 79]
+[.footer: Slide 6 / 81]
 
 ## When to Choose Self-Managed
 
@@ -97,7 +95,7 @@ postgres.app for macs will create a psql connection
 
 ---
 
-[.footer: Slide 7 / 79]
+[.footer: Slide 7 / 81]
 
 ## When to Choose Managed
 
@@ -109,13 +107,13 @@ postgres.app for macs will create a psql connection
 
 ---
 
-[.footer: Slide 8 / 79]
+[.footer: Slide 8 / 81]
 
 ## Backups
 
 ---
 
-[.footer: Slide 9 / 79]
+[.footer: Slide 9 / 81]
 
 ## Backup Strategy Fundamentals
 
@@ -126,7 +124,7 @@ postgres.app for macs will create a psql connection
 
 ---
 
-[.footer: Slide 10 / 79]
+[.footer: Slide 10 / 81]
 
 ## Backup Choices
 
@@ -136,7 +134,7 @@ postgres.app for macs will create a psql connection
 
 ---
 
-[.footer: Slide 11 / 79]
+[.footer: Slide 11 / 81]
 
 ## pg_dump - a copy, not a real backup
 
@@ -156,7 +154,7 @@ pg_dump -t 'bluebox.film' -t 'bluebox.rental' \
 
 ---
 
-[.footer: Slide 12 / 79]
+[.footer: Slide 12 / 81]
 
 ## pg_dump Options
 
@@ -171,7 +169,7 @@ pg_dump -t 'bluebox.film' -t 'bluebox.rental' \
 
 ---
 
-[.footer: Slide 13 / 79]
+[.footer: Slide 13 / 81]
 
 ## pg_dumpall - All Databases
 
@@ -185,7 +183,7 @@ pg_dumpall --globals-only -d postgresql://postgres:training@localhost:5432/postg
 
 ---
 
-[.footer: Slide 14 / 79]
+[.footer: Slide 14 / 81]
 
 ## pg_restore - Restoring Backups
 
@@ -202,7 +200,7 @@ pg_restore -t film -h localhost -U postgres -d bluebox_new bluebox.dump
 
 ---
 
-[.footer: Slide 15 / 79]
+[.footer: Slide 15 / 81]
 
 ## pg_basebackup - Physical Backup
 
@@ -216,14 +214,13 @@ Unlike pg_dump (logical), pg_basebackup:
 
 ---
 
-[.footer: Slide 16 / 79]
-
+[.footer: Slide 16 / 81]
 
 ![fit](diagrams/point-in-time-recovery.png)
 
 ---
 
-[.footer: Slide 17 / 79]
+[.footer: Slide 17 / 81]
 
 ## 🔧 Hands-On: pg_basebackup
 
@@ -247,7 +244,7 @@ Note: This backup is inside the container. In production, you'd mount an externa
 
 ---
 
-[.footer: Slide 18 / 79]
+[.footer: Slide 18 / 81]
 
 ## pg_basebackup Options
 
@@ -263,7 +260,7 @@ Note: This backup is inside the container. In production, you'd mount an externa
 
 ---
 
-[.footer: Slide 19 / 79]
+[.footer: Slide 19 / 81]
 
 ## Inspect the Backup
 
@@ -280,7 +277,7 @@ docker exec postgres-training ls -la /backup/full/
 
 ---
 
-[.footer: Slide 20 / 79]
+[.footer: Slide 20 / 81]
 
 ## Verify the Backup Manifest
 
@@ -302,7 +299,7 @@ The manifest lists every file with checksums for verification.
 
 ---
 
-[.footer: Slide 21 / 79]
+[.footer: Slide 21 / 81]
 
 ## Understanding WAL
 
@@ -310,7 +307,7 @@ The manifest lists every file with checksums for verification.
 
 ---
 
-[.footer: Slide 22 / 79]
+[.footer: Slide 22 / 81]
 
 ## What is WAL?
 
@@ -323,13 +320,13 @@ The manifest lists every file with checksums for verification.
 
 ---
 
-[.footer: Slide 23 / 79]
+[.footer: Slide 23 / 81]
 
 ![fit](diagrams/WAL-diagram.png)
 
 ---
 
-[.footer: Slide 24 / 79]
+[.footer: Slide 24 / 81]
 
 ## 🔧 Hands-On: View WAL
 
@@ -352,7 +349,7 @@ docker exec postgres-training ls -la \
 
 ---
 
-[.footer: Slide 25 / 79]
+[.footer: Slide 25 / 81]
 
 ## Why WAL Matters for Backups: Consistency
 
@@ -373,7 +370,7 @@ Base Backup (Monday) + WAL files = Any point in time
 
 ---
 
-[.footer: Slide 26 / 79]
+[.footer: Slide 26 / 81]
 
 ## Backup Strategy Example
 
@@ -389,7 +386,7 @@ Base Backup (Monday) + WAL files = Any point in time
 
 ---
 
-[.footer: Slide 27 / 79]
+[.footer: Slide 27 / 81]
 
 ## Physical Backup Summary
 
@@ -402,7 +399,7 @@ Base Backup (Monday) + WAL files = Any point in time
 
 ---
 
-[.footer: Slide 28 / 79]
+[.footer: Slide 28 / 81]
 
 ## Other Backup Tools
 
@@ -412,24 +409,25 @@ Base Backup (Monday) + WAL files = Any point in time
 
 ---
 
-[.footer: Slide 29 / 79]
+[.footer: Slide 29 / 81]
 
 ## Upgrades and Versions
 
 ---
 
-[.footer: Slide 30 / 79]
+[.footer: Slide 30 / 81]
 
-![inline](diagrams/postgres versions 19.png)
+![inline](diagrams/postgres-versions-20.png)
 
 ---
 
-[.footer: Slide 31 / 79]
+[.footer: Slide 31 / 81]
 
 ## Current Support Status
 
 | Version | First Release | End of Life |
 |---------|--------------|-------------|
+| 19 | Any day!  |  |
 | 18 | Sept 2025 | Nov 2030 |
 | 17 | Sept 2024 | Nov 2029 |
 | 16 | Sept 2023 | Nov 2028 |
@@ -438,7 +436,7 @@ Base Backup (Monday) + WAL files = Any point in time
 
 ---
 
-[.footer: Slide 32 / 79]
+[.footer: Slide 32 / 81]
 
 ## Minor Version Upgrades
 
@@ -458,7 +456,7 @@ systemctl restart postgresql
 
 ---
 
-[.footer: Slide 33 / 79]
+[.footer: Slide 33 / 81]
 
 ## 🔧 Minor Upgrade with Docker
 
@@ -483,7 +481,7 @@ docker exec postgres-training psql -U postgres \
 
 ---
 
-[.footer: Slide 34 / 79]
+[.footer: Slide 34 / 81]
 
 ## Major Version Upgrades - Options
 
@@ -493,7 +491,7 @@ docker exec postgres-training psql -U postgres \
 
 ---
 
-[.footer: Slide 35 / 79]
+[.footer: Slide 35 / 81]
 
 ## pg_upgrade
 
@@ -514,7 +512,7 @@ systemctl start postgresql@18-main
 
 ---
 
-[.footer: Slide 36 / 79]
+[.footer: Slide 36 / 81]
 
 ## Pre-Upgrade Checklist
 
@@ -528,13 +526,13 @@ systemctl start postgresql@18-main
 
 ---
 
-[.footer: Slide 37 / 79]
+[.footer: Slide 37 / 81]
 
 ## DR & HA Concepts
 
 ---
 
-[.footer: Slide 38 / 79]
+[.footer: Slide 38 / 81]
 
 ## Key Terms
 
@@ -545,7 +543,7 @@ systemctl start postgresql@18-main
 
 ---
 
-[.footer: Slide 39 / 79]
+[.footer: Slide 39 / 81]
 
 ## Streaming Replication
 
@@ -561,7 +559,7 @@ Primary ──WAL Stream──> Standby (Hot Standby)
 
 ---
 
-[.footer: Slide 40 / 79]
+[.footer: Slide 40 / 81]
 
 ## Setting Up Streaming Replication
 
@@ -582,7 +580,7 @@ hot_standby = on  # allows queries on the standby
 
 ---
 
-[.footer: Slide 41 / 79]
+[.footer: Slide 41 / 81]
 
 ## Failover Options
 
@@ -603,7 +601,7 @@ hot_standby = on  # allows queries on the standby
 
 ---
 
-[.footer: Slide 42 / 79]
+[.footer: Slide 42 / 81]
 
 ## Patroni - HA Solution
 
@@ -626,13 +624,13 @@ Hands-on Patroni is out of scope, but try the official demo:
 
 ---
 
-[.footer: Slide 43 / 79]
+[.footer: Slide 43 / 81]
 
 ## Logical Replication
 
 ---
 
-[.footer: Slide 44 / 79]
+[.footer: Slide 44 / 81]
 
 ## What is Logical Replication?
 
@@ -645,7 +643,7 @@ Unlike streaming replication:
 
 ---
 
-[.footer: Slide 45 / 79]
+[.footer: Slide 45 / 81]
 
 ## Logical Replication Use Cases
 
@@ -658,7 +656,7 @@ Unlike streaming replication:
 
 ---
 
-[.footer: Slide 46 / 79]
+[.footer: Slide 46 / 81]
 
 ## 🔧 Hands-On: Logical Replication
 
@@ -680,11 +678,10 @@ docker ps | grep postgres
 
 ---
 
-[.footer: Slide 47 / 79]
+[.footer: Slide 47 / 81]
 
 ## Step 1: Prepare the Subscriber
 
-[.column]
 
 Create matching database and table on subscriber:
 
@@ -707,9 +704,15 @@ CREATE TYPE mpaa_rating AS ENUM (
     'NC-17',
     'NR'
 );
+```
 
-[.column]
+---
 
+[.footer: Slide 48 / 81]
+
+## Step 1: Prepare the Subscriber
+
+```sql
 -- Create the table structure (no data)
 CREATE TABLE bluebox.film (
     film_id bigint primary key,
@@ -731,7 +734,7 @@ CREATE TABLE bluebox.film (
 
 ---
 
-[.footer: Slide 48 / 79]
+[.footer: Slide 49 / 81]
 
 ## Step 2: Create Publication
 
@@ -752,7 +755,7 @@ SELECT * FROM pg_publication_tables;
 
 ---
 
-[.footer: Slide 49 / 79]
+[.footer: Slide 50 / 81]
 
 ## Step 3: Create Subscription
 
@@ -774,7 +777,7 @@ SELECT * FROM pg_stat_subscription;
 
 ---
 
-[.footer: Slide 50 / 79]
+[.footer: Slide 51 / 81]
 
 ## Step 4: Watch It Replicate!
 
@@ -793,7 +796,7 @@ LIMIT 5;
 
 ---
 
-[.footer: Slide 51 / 79]
+[.footer: Slide 52 / 81]
 
 ## Step 5: Test Live Replication
 
@@ -817,7 +820,7 @@ WHERE title = 'The Dark Knight';
 
 ---
 
-[.footer: Slide 52 / 79]
+[.footer: Slide 53 / 81]
 
 ## Monitor Replication Status
 
@@ -837,7 +840,7 @@ FROM pg_replication_slots;
 
 ---
 
-[.footer: Slide 53 / 79]
+[.footer: Slide 54 / 81]
 
 ## Clean Up (Optional)
 
@@ -851,13 +854,13 @@ DROP PUBLICATION film_pub;
 
 ---
 
-[.footer: Slide 54 / 79]
+[.footer: Slide 55 / 81]
 
 ## Connection Management
 
 ---
 
-[.footer: Slide 55 / 79]
+[.footer: Slide 56 / 81]
 
 ## Connection Settings
 
@@ -878,7 +881,7 @@ WHERE datname = 'bluebox';
 
 ---
 
-[.footer: Slide 56 / 79]
+[.footer: Slide 57 / 81]
 
 ## The Connection Problem
 
@@ -902,7 +905,7 @@ ORDER BY state_change;
 
 ---
 
-[.footer: Slide 57 / 79]
+[.footer: Slide 58 / 81]
 
 ## PgBouncer - Connection Pooler
 
@@ -918,7 +921,7 @@ App (1000 connections) → PgBouncer → PostgreSQL (20 connections)
 
 ---
 
-[.footer: Slide 58 / 79]
+[.footer: Slide 59 / 81]
 
 ## 🔧 Hands-On: PgBouncer
 
@@ -937,7 +940,7 @@ docker ps | grep pgbouncer
 
 ---
 
-[.footer: Slide 59 / 79]
+[.footer: Slide 60 / 81]
 
 ## Pool Modes
 
@@ -951,7 +954,7 @@ Our Docker setup uses **transaction** mode (most common).
 
 ---
 
-[.footer: Slide 60 / 79]
+[.footer: Slide 61 / 81]
 
 ## Connect Through PgBouncer
 
@@ -967,7 +970,7 @@ Both connections work the same - but PgBouncer pools them!
 
 ---
 
-[.footer: Slide 61 / 79]
+[.footer: Slide 62 / 81]
 
 ## PgBouncer Admin Console
 
@@ -985,7 +988,7 @@ SHOW HELP;
 
 ---
 
-[.footer: Slide 62 / 79]
+[.footer: Slide 63 / 81]
 
 ## Monitor Pool Statistics
 
@@ -1005,13 +1008,13 @@ SHOW POOLS;
 
 ---
 
-[.footer: Slide 63 / 79]
+[.footer: Slide 64 / 81]
 
 ## Disk, Storage, and Vacuum
 
 ---
 
-[.footer: Slide 64 / 79]
+[.footer: Slide 65 / 81]
 
 ## MVCC - Multi-Version Concurrency Control
 
@@ -1025,7 +1028,7 @@ PostgreSQL keeps old row versions for:
 
 ---
 
-[.footer: Slide 65 / 79]
+[.footer: Slide 66 / 81]
 
 ## What is Vacuum?
 
@@ -1044,7 +1047,7 @@ VACUUM FULL bluebox.rental;
 
 ---
 
-[.footer: Slide 66 / 79]
+[.footer: Slide 67 / 81]
 
 ## Autovacuum
 
@@ -1061,7 +1064,7 @@ autovacuum_vacuum_scale_factor = 0.2
 
 ---
 
-[.footer: Slide 67 / 79]
+[.footer: Slide 68 / 81]
 
 ## Monitoring Table Bloat
 
@@ -1081,7 +1084,7 @@ LIMIT 10;
 
 ---
 
-[.footer: Slide 68 / 79]
+[.footer: Slide 69 / 81]
 
 ## Table and Index Bloat
 
@@ -1099,7 +1102,7 @@ Tools for bloat analysis:
 
 ---
 
-[.footer: Slide 69 / 79]
+[.footer: Slide 70 / 81]
 
 ## Disk Space Monitoring
 
@@ -1124,13 +1127,13 @@ ORDER BY pg_total_relation_size(relid) DESC LIMIT 5;
 
 ---
 
-[.footer: Slide 70 / 79]
+[.footer: Slide 71 / 81]
 
 ## Table Partitioning
 
 ---
 
-[.footer: Slide 71 / 79]
+[.footer: Slide 72 / 81]
 
 ## What is Partitioning?
 
@@ -1147,7 +1150,7 @@ PostgreSQL automatically routes queries/inserts to the right partition.
 
 ---
 
-[.footer: Slide 72 / 79]
+[.footer: Slide 73 / 81]
 
 ## Why Partition?
 
@@ -1160,7 +1163,7 @@ Best for: Large tables (100M+ rows), time-series data, archival needs
 
 ---
 
-[.footer: Slide 73 / 79]
+[.footer: Slide 74 / 81]
 
 ## Partition Types
 
@@ -1172,7 +1175,7 @@ Best for: Large tables (100M+ rows), time-series data, archival needs
 
 ---
 
-[.footer: Slide 74 / 79]
+[.footer: Slide 75 / 81]
 
 ## 🔧 Hands-On: Range Partitioning
 
@@ -1195,7 +1198,7 @@ CREATE TABLE payment_2025 PARTITION OF bluebox.payment_history
 
 ---
 
-[.footer: Slide 75 / 79]
+[.footer: Slide 76 / 81]
 
 ## Insert & Query Partitioned Tables
 
@@ -1212,7 +1215,7 @@ WHERE payment_date >= '2025-01-01';
 
 ---
 
-[.footer: Slide 76 / 79]
+[.footer: Slide 77 / 81]
 
 ## Managing Partitions
 
@@ -1229,7 +1232,7 @@ DROP TABLE payment_2024;  -- or archive to cold storage
 
 ---
 
-[.footer: Slide 77 / 79]
+[.footer: Slide 78 / 81]
 
 ## Partitioning Tips
 
@@ -1241,7 +1244,19 @@ DROP TABLE payment_2024;  -- or archive to cold storage
 
 ---
 
-[.footer: Slide 78 / 79]
+[.footer: Slide 79 / 81]
+
+## Further Reading
+
+- [Postgres Migrations Using Logical Replication](https://www.crunchydata.com/blog/postgres-migrations-using-logical-replication) (Crunchy)
+- [Postgres at Scale: Running Multiple PgBouncers](https://www.crunchydata.com/blog/postgres-at-scale-running-multiple-pgbouncers) (Crunchy)
+- [Partitioning with Native Postgres and pg_partman](https://www.crunchydata.com/blog/native-partitioning-with-postgres) (Crunchy)
+- [Top 10 Postgres Management Tasks](https://www.crunchydata.com/blog/top-10-postgres-management-tasks) (Crunchy)
+- [Postgres Security Checklist from CIS](https://www.crunchydata.com/blog/postgres-security-checklist-from-the-center-for-internet-security) (Crunchy)
+
+---
+
+[.footer: Slide 80 / 81]
 
 ## Hour 3 Summary
 
@@ -1258,7 +1273,7 @@ DROP TABLE payment_2024;  -- or archive to cold storage
 
 ---
 
-[.footer: Slide 79 / 79]
+[.footer: Slide 81 / 81]
 
 ## Questions?
 

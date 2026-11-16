@@ -1,6 +1,6 @@
 autoscale: true
 
-[.footer: Slide 1 / 63]
+[.footer: Slide 1 / 65]
 
 ## Postgres Query Tuning
 <br>
@@ -9,7 +9,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 2 / 63]
+[.footer: Slide 2 / 65]
 
 ## Hour 6 Topics
 
@@ -20,16 +20,15 @@ autoscale: true
 - Index types and strategies
 - Common performance patterns
 
-
 ---
 
-[.footer: Slide 3 / 63]
+[.footer: Slide 3 / 65]
 
 ## EXPLAIN - The Essential Tool
 
 ---
 
-[.footer: Slide 4 / 63]
+[.footer: Slide 4 / 65]
 
 ## What is EXPLAIN?
 
@@ -50,7 +49,7 @@ Output:
 
 ---
 
-[.footer: Slide 5 / 63]
+[.footer: Slide 5 / 65]
 
 ## EXPLAIN Options
 
@@ -71,7 +70,7 @@ SELECT * FROM bluebox.film WHERE vote_average > 8;
 
 ---
 
-[.footer: Slide 6 / 63]
+[.footer: Slide 6 / 65]
 
 ## EXPLAIN Output Formats
 
@@ -91,7 +90,7 @@ EXPLAIN (FORMAT XML) SELECT * FROM bluebox.film LIMIT 5;
 
 ---
 
-[.footer: Slide 7 / 63]
+[.footer: Slide 7 / 65]
 
 ## EXPLAIN YAML Example
 
@@ -121,7 +120,7 @@ SELECT title, vote_average FROM bluebox.film WHERE vote_average > 8;
 
 ---
 
-[.footer: Slide 8 / 63]
+[.footer: Slide 8 / 65]
 
 ## Reading Plan Costs
 
@@ -138,15 +137,15 @@ Seq Scan on film  (cost=0.00..941.95 rows=110 width=777)
 
 ---
 
-[.footer: Slide 9 / 63]
-
-## EXPLAIN ANALYZE
-
-[.column]
+[.footer: Slide 9 / 65]
 
 ![inline](diagrams/explain analyze.png)
 
-[.column]
+---
+
+[.footer: Slide 10 / 65]
+
+## EXPLAIN ANALYZE
 
 
 Shows **actual** execution:
@@ -160,7 +159,7 @@ Estimated 110 rows, got 111 — pretty close!
 
 ---
 
-[.footer: Slide 10 / 63]
+[.footer: Slide 11 / 65]
 
 ## Warning About EXPLAIN ANALYZE
 
@@ -178,7 +177,7 @@ ROLLBACK;
 
 ---
 
-[.footer: Slide 11 / 63]
+[.footer: Slide 12 / 65]
 
 ## EXPLAIN with BUFFERS
 
@@ -201,19 +200,13 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM bluebox.film WHERE vote_average > 8;
 
 ---
 
-[.footer: Slide 12 / 63]
-
-[.column]
-
-## Common Plan Operations
-
-[.column]
+[.footer: Slide 13 / 65]
 
 ![inline](diagrams/postgres-scan-types.png)
 
 ---
 
-[.footer: Slide 13 / 63]
+[.footer: Slide 14 / 65]
 
 [.column]
 
@@ -227,11 +220,9 @@ Reads every row in the table
 
 ![inline](diagrams/seq-scan.png)
 
-
-
 ---
 
-[.footer: Slide 14 / 63]
+[.footer: Slide 15 / 65]
 
 [.column]
 
@@ -245,10 +236,9 @@ Uses index to find rows, then fetches from table
 
 ![inline](diagrams/index-scan.png)
 
-
 ---
 
-[.footer: Slide 15 / 63]
+[.footer: Slide 16 / 65]
 
 [.column]
 
@@ -262,10 +252,9 @@ All needed data is in the index - no table access!
 
 ![inline](diagrams/index-only-scan.png)
 
-
 ---
 
-[.footer: Slide 16 / 63]
+[.footer: Slide 17 / 65]
 
 [.column]
 
@@ -279,10 +268,9 @@ Two-phase: Build bitmap of matching rows, then fetch in physical order
 
 ![inline](diagrams/bitmap-index-scan.png)
 
-
 ---
 
-[.footer: Slide 17 / 63]
+[.footer: Slide 18 / 65]
 
 ## Join Operations - Nested Loop
 
@@ -305,15 +293,13 @@ Best for small result sets with good indexes!
 
 ---
 
-[.footer: Slide 18 / 63]
-
-## Sort Operations
+[.footer: Slide 19 / 65]
 
 ![inline](diagrams/postgres-sorts-explain.png)
 
 ---
 
-[.footer: Slide 19 / 63]
+[.footer: Slide 20 / 65]
 
 ## Sort Methods in EXPLAIN
 
@@ -335,13 +321,13 @@ External merge = data exceeded work_mem
 
 ---
 
-[.footer: Slide 20 / 63]
+[.footer: Slide 21 / 65]
 
 ## pg\_stat\_statements
 
 ---
 
-[.footer: Slide 21 / 63]
+[.footer: Slide 22 / 65]
 
 ## Finding Slow Queries
 
@@ -365,7 +351,7 @@ CREATE EXTENSION pg_stat_statements;
 
 ---
 
-[.footer: Slide 22 / 63]
+[.footer: Slide 23 / 65]
 
 ## Generate Some Query Activity
 
@@ -392,7 +378,7 @@ SELECT title FROM bluebox.film ORDER BY popularity DESC LIMIT 20;
 
 ---
 
-[.footer: Slide 23 / 63]
+[.footer: Slide 24 / 65]
 
 ## Top Queries by Total Time
 
@@ -411,7 +397,7 @@ LIMIT 10;
 
 ---
 
-[.footer: Slide 24 / 63]
+[.footer: Slide 25 / 65]
 
 ## Top Queries by Average Time
 
@@ -429,7 +415,7 @@ LIMIT 10;
 
 ---
 
-[.footer: Slide 25 / 63]
+[.footer: Slide 26 / 65]
 
 ## Queries with Most I/O
 
@@ -448,7 +434,7 @@ LIMIT 10;
 
 ---
 
-[.footer: Slide 26 / 63]
+[.footer: Slide 27 / 65]
 
 ## Reset Statistics
 
@@ -462,7 +448,7 @@ SELECT pg_stat_statements_reset();
 
 ---
 
-[.footer: Slide 27 / 63]
+[.footer: Slide 28 / 65]
 
 ## auto_explain: Automatic Query Plans
 
@@ -470,7 +456,7 @@ Logs EXPLAIN output for slow queries automatically - no manual EXPLAIN needed!
 
 ---
 
-[.footer: Slide 28 / 63]
+[.footer: Slide 29 / 65]
 
 ## Setup: Make Sure Logging is Running
 
@@ -490,7 +476,7 @@ tail -f logs/postgresql.log
 
 ---
 
-[.footer: Slide 29 / 63]
+[.footer: Slide 30 / 65]
 
 ## Enable auto_explain
 
@@ -509,7 +495,7 @@ These are session-level settings - no restart needed!
 
 ---
 
-[.footer: Slide 30 / 63]
+[.footer: Slide 31 / 65]
 
 ## Run a Slow Query
 
@@ -527,7 +513,7 @@ Watch your log tail window!
 
 ---
 
-[.footer: Slide 31 / 63]
+[.footer: Slide 32 / 65]
 
 ## See the Plan in the Log
 
@@ -545,7 +531,7 @@ Sort  (cost=1234.56..1234.78 rows=100 width=40)
 
 ---
 
-[.footer: Slide 32 / 63]
+[.footer: Slide 33 / 65]
 
 ## auto_explain Options
 
@@ -560,13 +546,13 @@ For production, add to `shared_preload_libraries` and use `ALTER SYSTEM`.
 
 ---
 
-[.footer: Slide 33 / 63]
+[.footer: Slide 34 / 65]
 
 ![inline](diagrams/postgres-index-types.png)
 
 ---
 
-[.footer: Slide 34 / 63]
+[.footer: Slide 35 / 65]
 
 ## B-Tree Index (Default)
 
@@ -582,7 +568,7 @@ SELECT title FROM bluebox.film WHERE vote_average > 8;
 
 ---
 
-[.footer: Slide 35 / 63]
+[.footer: Slide 36 / 65]
 
 ## B-Tree Index: After
 
@@ -601,7 +587,7 @@ Cost dropped from ~942 to ~8!
 
 ---
 
-[.footer: Slide 36 / 63]
+[.footer: Slide 37 / 65]
 
 ## GIN Index
 
@@ -618,7 +604,7 @@ WHERE to_tsvector('english', overview) @@ to_tsquery('hero');
 
 ---
 
-[.footer: Slide 37 / 63]
+[.footer: Slide 38 / 65]
 
 ## GIN Index: After
 
@@ -638,7 +624,7 @@ Full-text search becomes instant!
 
 ---
 
-[.footer: Slide 38 / 63]
+[.footer: Slide 39 / 65]
 
 ## GiST Index
 
@@ -656,7 +642,7 @@ WHERE ST_DWithin(geog,
 
 ---
 
-[.footer: Slide 39 / 63]
+[.footer: Slide 40 / 65]
 
 ## GiST Index: After
 
@@ -676,7 +662,7 @@ Spatial queries go from scanning all rows to using the index!
 
 ---
 
-[.footer: Slide 40 / 63]
+[.footer: Slide 41 / 65]
 
 ## Index Type Summary
 
@@ -690,13 +676,13 @@ Spatial queries go from scanning all rows to using the index!
 
 ---
 
-[.footer: Slide 41 / 63]
+[.footer: Slide 42 / 65]
 
 ## Index Strategies
 
 ---
 
-[.footer: Slide 42 / 63]
+[.footer: Slide 43 / 65]
 
 ## Composite Indexes
 
@@ -714,7 +700,7 @@ WHERE lower(rental_period) > '2024'                     ✗
 
 ---
 
-[.footer: Slide 43 / 63]
+[.footer: Slide 44 / 65]
 
 ## Covering Indexes (INCLUDE)
 
@@ -732,7 +718,7 @@ WHERE vote_average > 8;
 
 ---
 
-[.footer: Slide 44 / 63]
+[.footer: Slide 45 / 65]
 
 ## Partial Indexes
 
@@ -751,7 +737,7 @@ WHERE upper(rental_period) IS NULL
 
 ---
 
-[.footer: Slide 45 / 63]
+[.footer: Slide 46 / 65]
 
 ## Expression Indexes
 
@@ -771,7 +757,7 @@ WHERE (amount * 1.0825) > 10.00;
 
 ---
 
-[.footer: Slide 46 / 63]
+[.footer: Slide 47 / 65]
 
 ## When NOT to Index
 
@@ -784,7 +770,7 @@ Every index has maintenance cost!
 
 ---
 
-[.footer: Slide 47 / 63]
+[.footer: Slide 48 / 65]
 
 ## Finding Missing Indexes
 
@@ -802,7 +788,7 @@ LIMIT 10;
 
 ---
 
-[.footer: Slide 48 / 63]
+[.footer: Slide 49 / 65]
 
 ## HypoPG - Test Indexes Without Creating
 
@@ -816,7 +802,7 @@ No disk space, no write overhead - just planning.
 
 ---
 
-[.footer: Slide 49 / 63]
+[.footer: Slide 50 / 65]
 
 ## HypoPG Example: Before Index
 
@@ -834,7 +820,7 @@ Sequential scan - reads entire table.
 
 ---
 
-[.footer: Slide 50 / 63]
+[.footer: Slide 51 / 65]
 
 ## HypoPG Example: Create Hypothetical Index
 
@@ -853,7 +839,7 @@ SELECT * FROM hypopg_create_index(
 
 ---
 
-[.footer: Slide 51 / 63]
+[.footer: Slide 52 / 65]
 
 ## HypoPG Example: Test With Hypothetical Index
 
@@ -872,7 +858,7 @@ Cost dropped from 941 to 8 - index would help!
 
 ---
 
-[.footer: Slide 52 / 63]
+[.footer: Slide 53 / 65]
 
 ## HypoPG Example: Composite Index
 
@@ -890,7 +876,7 @@ WHERE customer_id = 100
 
 ---
 
-[.footer: Slide 53 / 63]
+[.footer: Slide 54 / 65]
 
 ## HypoPG: Cleanup and Compare
 
@@ -909,13 +895,13 @@ Great for testing index strategies before committing disk space!
 
 ---
 
-[.footer: Slide 54 / 63]
+[.footer: Slide 55 / 65]
 
 ## Common Performance Patterns
 
 ---
 
-[.footer: Slide 55 / 63]
+[.footer: Slide 56 / 65]
 
 ## Pattern: N+1 Queries
 
@@ -938,7 +924,7 @@ LEFT JOIN bluebox.rental r ON c.customer_id = r.customer_id;
 
 ---
 
-[.footer: Slide 56 / 63]
+[.footer: Slide 57 / 65]
 
 ## Pattern: SELECT *
 
@@ -960,7 +946,7 @@ WHERE vote_average > 8;
 
 ---
 
-[.footer: Slide 57 / 63]
+[.footer: Slide 58 / 65]
 
 ## Pattern: OFFSET for Pagination
 
@@ -985,7 +971,7 @@ LIMIT 20;
 
 ---
 
-[.footer: Slide 58 / 63]
+[.footer: Slide 59 / 65]
 
 ## Pattern: Functions on Indexed Columns
 
@@ -1008,7 +994,7 @@ WHERE payment_date >= '2024-01-15'
 
 ---
 
-[.footer: Slide 59 / 63]
+[.footer: Slide 60 / 65]
 
 ## Pattern: OR Conditions
 
@@ -1031,7 +1017,7 @@ SELECT * FROM bluebox.film WHERE EXTRACT(year FROM release_date) = 2024;
 
 ---
 
-[.footer: Slide 60 / 63]
+[.footer: Slide 61 / 65]
 
 ## Query Tuning Checklist
 
@@ -1045,7 +1031,17 @@ SELECT * FROM bluebox.film WHERE EXTRACT(year FROM release_date) = 2024;
 
 ---
 
-[.footer: Slide 61 / 63]
+[.footer: Slide 62 / 65]
+
+## Further Reading
+
+- [How to Read Postgres EXPLAIN: A Guide to Scan Types](https://www.crunchydata.com/blog/postgres-scan-types-in-explain-plans) (Crunchy)
+- [Postgres Indexes for Newbies](https://www.crunchydata.com/blog/postgres-indexes-for-newbies) (Crunchy)
+- [Indexing Materialized Views in Postgres](https://www.crunchydata.com/blog/indexing-materialized-views-in-postgres) (Crunchy)
+
+---
+
+[.footer: Slide 63 / 65]
 
 ## Hour 6 Summary
 
@@ -1059,7 +1055,7 @@ SELECT * FROM bluebox.film WHERE EXTRACT(year FROM release_date) = 2024;
 
 ---
 
-[.footer: Slide 62 / 63]
+[.footer: Slide 64 / 65]
 
 ## Training Complete!
 
@@ -1069,11 +1065,9 @@ SELECT * FROM bluebox.film WHERE EXTRACT(year FROM release_date) = 2024;
 
 <br>
 
-Questions? Find us at the PostgreSQL booth!
-
 ---
 
-[.footer: Slide 63 / 63]
+[.footer: Slide 65 / 65]
 
 ## Additional Resources
 

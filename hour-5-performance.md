@@ -1,6 +1,6 @@
 autoscale: true
 
-[.footer: Slide 1 / 52]
+[.footer: Slide 1 / 53]
 
 ## Postgres Configuration and Performance Tuning
 <br>
@@ -9,7 +9,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 2 / 52]
+[.footer: Slide 2 / 53]
 
 ## Hour 5 Topics
 
@@ -22,22 +22,21 @@ autoscale: true
 - Parallel query execution
 - Vacuum and autovacuum
 
-
 ---
 
-[.footer: Slide 3 / 52]
+[.footer: Slide 3 / 53]
 
 ## Postgres Architecture
 
 ---
 
-[.footer: Slide 4 / 52]
+[.footer: Slide 4 / 53]
 
 ![inline](diagrams/pg data 1.png)
 
 ---
 
-[.footer: Slide 5 / 52]
+[.footer: Slide 5 / 53]
 
 #### Memory Architecture
 
@@ -45,7 +44,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 6 / 52]
+[.footer: Slide 6 / 53]
 
 ## i/o
 
@@ -53,7 +52,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 7 / 52]
+[.footer: Slide 7 / 53]
 
 ## Background Processes
 
@@ -69,7 +68,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 8 / 52]
+[.footer: Slide 8 / 53]
 
 ## Memory Configuration
 
@@ -77,7 +76,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 9 / 52]
+[.footer: Slide 9 / 53]
 
 ## Shared Buffers
 
@@ -97,7 +96,7 @@ shared_buffers = 8GB   -- For 32GB RAM system
 
 ---
 
-[.footer: Slide 10 / 52]
+[.footer: Slide 10 / 53]
 
 ## Shared Buffers Guidelines
 
@@ -112,7 +111,7 @@ Beyond 32GB, diminishing returns - OS cache helps too
 
 ---
 
-[.footer: Slide 11 / 52]
+[.footer: Slide 11 / 53]
 
 ## Effective Cache Size
 
@@ -129,7 +128,7 @@ This is just a hint - doesn't allocate memory
 
 ---
 
-[.footer: Slide 12 / 52]
+[.footer: Slide 12 / 53]
 
 ## Cache Hit Ratio
 
@@ -150,7 +149,7 @@ Target: **> 99%** for OLTP workloads ✓
 
 ---
 
-[.footer: Slide 13 / 52]
+[.footer: Slide 13 / 53]
 
 ## What's in the Buffer Cache?
 
@@ -173,13 +172,13 @@ LIMIT 10;
 
 ---
 
-[.footer: Slide 14 / 52]
+[.footer: Slide 14 / 53]
 
 ## Work Memory
 
 ---
 
-[.footer: Slide 15 / 52]
+[.footer: Slide 15 / 53]
 
 ## What is work_mem?
 
@@ -196,7 +195,7 @@ SHOW work_mem;  -- Default: 4MB
 
 ---
 
-[.footer: Slide 16 / 52]
+[.footer: Slide 16 / 53]
 
 ## work_mem Behavior
 
@@ -214,7 +213,7 @@ ORDER BY appearances DESC;                    -- sort
 
 ---
 
-[.footer: Slide 17 / 52]
+[.footer: Slide 17 / 53]
 
 ## Setting work_mem
 
@@ -232,7 +231,7 @@ RESET work_mem;
 
 ---
 
-[.footer: Slide 18 / 52]
+[.footer: Slide 18 / 53]
 
 ## When to Increase work_mem
 
@@ -249,7 +248,7 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...
 
 ---
 
-[.footer: Slide 19 / 52]
+[.footer: Slide 19 / 53]
 
 ## Maintenance Work Memory
 
@@ -268,11 +267,10 @@ Can be set much higher than work_mem
 
 ---
 
-[.footer: Slide 20 / 52]
+[.footer: Slide 20 / 53]
 
 ## Checkpoints
 
-[.column]
 
 ```sql
 -- How often (in WAL segments or time)
@@ -283,13 +281,11 @@ max_wal_size = 4GB
 checkpoint_completion_target = 0.9
 ```
 
-[.column]
-
 ![inline](diagrams/data change.png)
 
 ---
 
-[.footer: Slide 21 / 52]
+[.footer: Slide 21 / 53]
 
 ## Checkpoint Tuning
 
@@ -308,7 +304,7 @@ Less frequent checkpoints:
 
 ---
 
-[.footer: Slide 22 / 52]
+[.footer: Slide 22 / 53]
 
 ## Sequential vs Random I/O Costs
 
@@ -323,7 +319,7 @@ random_page_cost = 1.1   -- SSDs have nearly equal random/sequential
 
 ---
 
-[.footer: Slide 23 / 52]
+[.footer: Slide 23 / 53]
 
 ## Parallel Query Execution
 
@@ -336,7 +332,7 @@ Postgres can use multiple CPU cores for a single query:
 
 ---
 
-[.footer: Slide 24 / 52]
+[.footer: Slide 24 / 53]
 
 ## Parallel Query Defaults
 
@@ -353,7 +349,7 @@ Parallel kicks in for larger tables automatically.
 
 ---
 
-[.footer: Slide 25 / 52]
+[.footer: Slide 25 / 53]
 
 ## Increasing Parallel Workers
 
@@ -373,7 +369,7 @@ SELECT pg_reload_conf();
 
 ---
 
-[.footer: Slide 26 / 52]
+[.footer: Slide 26 / 53]
 
 ## Parallel Query in EXPLAIN
 
@@ -394,7 +390,7 @@ Finalize Aggregate
 
 ---
 
-[.footer: Slide 27 / 52]
+[.footer: Slide 27 / 53]
 
 ## Memory Settings Summary
 
@@ -407,13 +403,13 @@ Finalize Aggregate
 
 ---
 
-[.footer: Slide 28 / 52]
+[.footer: Slide 28 / 53]
 
 ## Vacuum and Autovacuum
 
 ---
 
-[.footer: Slide 29 / 52]
+[.footer: Slide 29 / 53]
 
 ## Why Does Postgres Need Vacuum?
 
@@ -427,7 +423,7 @@ Vacuum reclaims this space for reuse.
 
 ---
 
-[.footer: Slide 30 / 52]
+[.footer: Slide 30 / 53]
 
 ## Autovacuum: The Robot Cleaner
 
@@ -445,7 +441,7 @@ For a 1,000 row table → vacuum at ~250 dead rows
 
 ---
 
-[.footer: Slide 31 / 52]
+[.footer: Slide 31 / 53]
 
 ## Do You Need to Tune Autovacuum?
 
@@ -462,7 +458,7 @@ Consider tuning if you see:
 
 ---
 
-[.footer: Slide 32 / 52]
+[.footer: Slide 32 / 53]
 
 ## Check Dead Tuples Waiting for Cleanup
 
@@ -480,7 +476,7 @@ LIMIT 10;
 
 ---
 
-[.footer: Slide 33 / 52]
+[.footer: Slide 33 / 53]
 
 ## Tuning: Scale Factor
 
@@ -500,7 +496,7 @@ SET (autovacuum_vacuum_threshold = 1000000);
 
 ---
 
-[.footer: Slide 34 / 52]
+[.footer: Slide 34 / 53]
 
 ## Tuning: Cost-Based Throttling
 
@@ -518,7 +514,7 @@ SET (autovacuum_vacuum_cost_limit = 100);
 
 ---
 
-[.footer: Slide 35 / 52]
+[.footer: Slide 35 / 53]
 
 ## Transaction ID Wraparound
 
@@ -539,7 +535,7 @@ Stay well under 2 billion.
 
 ---
 
-[.footer: Slide 36 / 52]
+[.footer: Slide 36 / 53]
 
 ## Vacuum Summary
 
@@ -553,13 +549,13 @@ Stay well under 2 billion.
 
 ---
 
-[.footer: Slide 37 / 52]
+[.footer: Slide 37 / 53]
 
 ## Scaling Reads and Writes
 
 ---
 
-[.footer: Slide 38 / 52]
+[.footer: Slide 38 / 53]
 
 ## Scaling Strategies
 
@@ -581,7 +577,7 @@ Stay well under 2 billion.
 
 ---
 
-[.footer: Slide 39 / 52]
+[.footer: Slide 39 / 53]
 
 ## Read Scaling with Replicas
 
@@ -589,7 +585,7 @@ Stay well under 2 billion.
 
 ---
 
-[.footer: Slide 40 / 52]
+[.footer: Slide 40 / 53]
 
 ## Connection Pooling
 
@@ -599,7 +595,7 @@ Reduces connection overhead dramatically
 
 ---
 
-[.footer: Slide 41 / 52]
+[.footer: Slide 41 / 53]
 
 ## Table Partitioning
 
@@ -623,7 +619,7 @@ CREATE TABLE payment_2025 PARTITION OF bluebox.payment_partitioned
 
 ---
 
-[.footer: Slide 42 / 52]
+[.footer: Slide 42 / 53]
 
 ## Partitioning Benefits
 
@@ -635,7 +631,7 @@ CREATE TABLE payment_2025 PARTITION OF bluebox.payment_partitioned
 
 ---
 
-[.footer: Slide 43 / 52]
+[.footer: Slide 43 / 53]
 
 ## Write Scaling Challenges
 
@@ -649,13 +645,13 @@ Options:
 
 ---
 
-[.footer: Slide 44 / 52]
+[.footer: Slide 44 / 53]
 
 ## Configuration Management
 
 ---
 
-[.footer: Slide 45 / 52]
+[.footer: Slide 45 / 53]
 
 ## Where Settings Live
 
@@ -668,7 +664,7 @@ SHOW data_directory;  -- Data directory
 
 ---
 
-[.footer: Slide 46 / 52]
+[.footer: Slide 46 / 53]
 
 ## Changing Settings
 
@@ -690,7 +686,7 @@ FROM pg_settings WHERE name IN
 
 ---
 
-[.footer: Slide 47 / 52]
+[.footer: Slide 47 / 53]
 
 ## Applying Changes
 
@@ -709,7 +705,7 @@ WHERE pending_restart;
 
 ---
 
-[.footer: Slide 48 / 52]
+[.footer: Slide 48 / 53]
 
 ## ALTER SYSTEM
 
@@ -727,7 +723,7 @@ ALTER SYSTEM RESET work_mem;
 
 ---
 
-[.footer: Slide 49 / 52]
+[.footer: Slide 49 / 53]
 
 ## Starting Point Configuration
 
@@ -749,7 +745,7 @@ effective_io_concurrency = 200 -- SSD
 
 ---
 
-[.footer: Slide 50 / 52]
+[.footer: Slide 50 / 53]
 
 ## PGTune
 
@@ -767,7 +763,17 @@ Input:
 
 ---
 
-[.footer: Slide 51 / 52]
+[.footer: Slide 51 / 53]
+
+## Further Reading
+
+- [Do You Need to Tune Postgres Vacuum?](https://www.snowflake.com/en/blog/engineering/tuning-postgres-vacuum/) (Snowflake)
+- [Parallel Queries in Postgres](https://www.crunchydata.com/blog/parallel-queries-in-postgres) (Crunchy)
+- [Postgres TOAST: The Greatest Thing Since Sliced Bread?](https://www.crunchydata.com/blog/postgres-toast-the-greatest-thing-since-sliced-bread) (Crunchy)
+
+---
+
+[.footer: Slide 52 / 53]
 
 ## Hour 5 Summary
 
@@ -782,7 +788,7 @@ Input:
 
 ---
 
-[.footer: Slide 52 / 52]
+[.footer: Slide 53 / 53]
 
 ## Questions?
 
