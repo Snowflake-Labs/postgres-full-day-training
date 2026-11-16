@@ -1,6 +1,6 @@
 autoscale: true
 
-[.footer: Slide 1 / 59]
+[.footer: Slide 1 / 60]
 
 ## Getting Started with SQL in Postgres
 <br>
@@ -9,7 +9,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 2 / 59]
+[.footer: Slide 2 / 60]
 
 ## Hour 2 Topics
 
@@ -39,7 +39,7 @@ postgres.app for macs will create a psql connection
 
 ---
 
-[.footer: Slide 3 / 59]
+[.footer: Slide 3 / 60]
 
 ## What is CRUD?
 
@@ -52,7 +52,7 @@ These four operations cover nearly all data manipulation (DML)!
 
 ---
 
-[.footer: Slide 4 / 59]
+[.footer: Slide 4 / 60]
 
 ## SELECT - Reading Data
 
@@ -76,7 +76,7 @@ LIMIT 5;
 
 ---
 
-[.footer: Slide 5 / 59]
+[.footer: Slide 5 / 60]
 
 ## What are Aggregates?
 
@@ -96,7 +96,7 @@ Use with `GROUP BY` to aggregate per group
 
 ---
 
-[.footer: Slide 6 / 59]
+[.footer: Slide 6 / 60]
 
 ## SELECT with Aggregates
 
@@ -124,7 +124,7 @@ ORDER BY release_year DESC LIMIT 5;
 
 ---
 
-[.footer: Slide 7 / 59]
+[.footer: Slide 7 / 60]
 
 ## INSERT - Creating Data
 
@@ -141,7 +141,7 @@ VALUES (
 
 ---
 
-[.footer: Slide 8 / 59]
+[.footer: Slide 8 / 60]
 
 ## INSERT - What Happens Without Required Fields?
 
@@ -160,7 +160,7 @@ The table has constraints that protect data integrity!
 
 ---
 
-[.footer: Slide 9 / 59]
+[.footer: Slide 9 / 60]
 
 ## Constraints Protect Your Data
 
@@ -177,7 +177,7 @@ Constraints catch bad data at the database level — not in app code!
 
 ---
 
-[.footer: Slide 10 / 59]
+[.footer: Slide 10 / 60]
 
 ## UPDATE - Modifying Data
 
@@ -196,7 +196,7 @@ WHERE film_id = 550;
 
 ---
 
-[.footer: Slide 11 / 59]
+[.footer: Slide 11 / 60]
 
 ## DELETE - Removing Data
 
@@ -221,7 +221,7 @@ DETAIL: Key (film_id)=(1472668) is referenced from table "inventory".
 
 ---
 
-[.footer: Slide 12 / 59]
+[.footer: Slide 12 / 60]
 
 ## DELETE - Working with Constraints
 
@@ -243,7 +243,7 @@ DELETE FROM bluebox.film WHERE film_id = 1472668;
 
 ---
 
-[.footer: Slide 13 / 59]
+[.footer: Slide 13 / 60]
 
 ## Constraints
 
@@ -262,7 +262,7 @@ Rules that enforce data integrity at the database level
 
 ---
 
-[.footer: Slide 14 / 59]
+[.footer: Slide 14 / 60]
 
 #### Constraints: WITHOUT OVERLAPS (new PG 18)
 
@@ -295,7 +295,7 @@ No more double-booked rentals!
 
 ---
 
-[.footer: Slide 15 / 59]
+[.footer: Slide 15 / 60]
 
 ## RETURNING Clause
 
@@ -315,7 +315,7 @@ RETURNING customer_id, create_date;
 
 ---
 
-[.footer: Slide 16 / 59]
+[.footer: Slide 16 / 60]
 
 ## RETURNING OLD/NEW (PG 18)
 
@@ -338,7 +338,7 @@ No more separate SELECT to see what changed!
 
 ---
 
-[.footer: Slide 17 / 59]
+[.footer: Slide 17 / 60]
 
 ## UPSERT with ON CONFLICT
 
@@ -357,13 +357,13 @@ DO UPDATE SET
 
 ---
 
-[.footer: Slide 18 / 59]
+[.footer: Slide 18 / 60]
 
 ![fit](diagrams/join-types.png)
 
 ---
 
-[.footer: Slide 19 / 59]
+[.footer: Slide 19 / 60]
 
 ## INNER JOIN
 
@@ -388,7 +388,7 @@ LIMIT 3;
 
 ---
 
-[.footer: Slide 20 / 59]
+[.footer: Slide 20 / 60]
 
 ## LEFT JOIN
 
@@ -416,7 +416,7 @@ ORDER BY cast_count DESC LIMIT 5;
 
 ---
 
-[.footer: Slide 21 / 59]
+[.footer: Slide 21 / 60]
 
 ## RIGHT JOIN
 
@@ -435,7 +435,7 @@ GROUP BY f.film_id, f.title;
 
 ---
 
-[.footer: Slide 22 / 59]
+[.footer: Slide 22 / 60]
 
 ## FULL OUTER JOIN
 
@@ -457,7 +457,7 @@ ORDER BY p.name
 
 ---
 
-[.footer: Slide 23 / 59]
+[.footer: Slide 23 / 60]
 
 ## Multiple JOINs
 
@@ -486,13 +486,13 @@ LIMIT 5;
 
 ---
 
-[.footer: Slide 24 / 59]
+[.footer: Slide 24 / 60]
 
 ## Arrays and JSON
 
 ---
 
-[.footer: Slide 25 / 59]
+[.footer: Slide 25 / 60]
 
 ## Arrays in PostgreSQL
 
@@ -520,7 +520,7 @@ Drama (18), Action (28), Crime (80), Thriller (53)
 
 ---
 
-[.footer: Slide 26 / 59]
+[.footer: Slide 26 / 60]
 
 ## Adding to an Array
 
@@ -538,7 +538,7 @@ WHERE film_id = 155;
 
 ---
 
-[.footer: Slide 27 / 59]
+[.footer: Slide 27 / 60]
 
 ## Array Operators
 
@@ -553,7 +553,7 @@ WHERE film_id = 155;
 
 ---
 
-[.footer: Slide 28 / 59]
+[.footer: Slide 28 / 60]
 
 ## Querying Arrays
 
@@ -583,7 +583,7 @@ WHERE f.title = 'The Dark Knight';
 
 ---
 
-[.footer: Slide 29 / 59]
+[.footer: Slide 29 / 60]
 
 ## JSON vs JSONB
 
@@ -600,7 +600,7 @@ WHERE f.title = 'The Dark Knight';
 
 ---
 
-[.footer: Slide 30 / 59]
+[.footer: Slide 30 / 60]
 
 ## Working with JSONB
 
@@ -637,7 +637,7 @@ No schema enforcement - each row can have different structures!
 
 ---
 
-[.footer: Slide 31 / 59]
+[.footer: Slide 31 / 60]
 
 ## JSONB Operators
 
@@ -653,7 +653,7 @@ No schema enforcement - each row can have different structures!
 
 ---
 
-[.footer: Slide 32 / 59]
+[.footer: Slide 32 / 60]
 
 ## Querying JSONB
 
@@ -677,7 +677,7 @@ WHERE data @> '{"director": "Christopher Nolan"}';
 
 ---
 
-[.footer: Slide 33 / 59]
+[.footer: Slide 33 / 60]
 
 ## Window Functions
 
@@ -693,13 +693,13 @@ Key difference from GROUP BY: window functions keep all rows!
 
 ---
 
-[.footer: Slide 34 / 59]
+[.footer: Slide 34 / 60]
 
 ![fit](diagrams/window-functions.png)
 
 ---
 
-[.footer: Slide 35 / 59]
+[.footer: Slide 35 / 60]
 
 ## Running Totals
 
@@ -725,7 +725,7 @@ ORDER BY payment_date;
 
 ---
 
-[.footer: Slide 36 / 59]
+[.footer: Slide 36 / 60]
 
 ## LAG - Compare to Previous Row
 
@@ -750,7 +750,7 @@ ORDER BY payment_date;
 
 ---
 
-[.footer: Slide 37 / 59]
+[.footer: Slide 37 / 60]
 
 ## LEAD - Look Ahead
 
@@ -770,8 +770,7 @@ LIMIT 5;
 
 ---
 
-[.footer: Slide 38 / 59]
-
+[.footer: Slide 38 / 60]
 
 ## CTEs - Common Table Expressions
 
@@ -779,16 +778,15 @@ LIMIT 5;
 - Can be referenced multiple times
 - Great for breaking down complex queries
 
-
 ---
 
-[.footer: Slide 39 / 59]
+[.footer: Slide 39 / 60]
 
 ![fit](diagrams/ctes.jpeg)
 
 ---
 
-[.footer: Slide 40 / 59]
+[.footer: Slide 40 / 60]
 
 ## CTE: Calculate Once, Use Multiple Times
 
@@ -820,7 +818,7 @@ The CTE `customer_totals` is referenced **3 times** - that's the power!
 
 ---
 
-[.footer: Slide 41 / 59]
+[.footer: Slide 41 / 60]
 
 ## Multiple CTEs
 
@@ -856,7 +854,7 @@ SELECT * FROM top_years;
 
 ---
 
-[.footer: Slide 42 / 59]
+[.footer: Slide 42 / 60]
 
 ## What is PL/pgSQL?
 
@@ -869,7 +867,7 @@ PostgreSQL's procedural language
 
 ---
 
-[.footer: Slide 43 / 59]
+[.footer: Slide 43 / 60]
 
 ## Real-World Function: Return a Rental
 
@@ -905,7 +903,7 @@ $$ LANGUAGE plpgsql;
 
 ---
 
-[.footer: Slide 44 / 59]
+[.footer: Slide 44 / 60]
 
 ## Using the Function
 
@@ -929,13 +927,13 @@ This pattern is common for business logic that needs to:
 
 ---
 
-[.footer: Slide 45 / 59]
+[.footer: Slide 45 / 60]
 
 ## 🔍 Text Search in Postgres
 
 ---
 
-[.footer: Slide 46 / 59]
+[.footer: Slide 46 / 60]
 
 ## Three Ways to Search Text
 
@@ -948,7 +946,7 @@ This pattern is common for business logic that needs to:
 
 ---
 
-[.footer: Slide 47 / 59]
+[.footer: Slide 47 / 60]
 
 ## Method 1a: Pattern Matching with ILIKE
 
@@ -970,7 +968,7 @@ WHERE title ILIKE '%spider%';
 
 ---
 
-[.footer: Slide 48 / 59]
+[.footer: Slide 48 / 60]
 
 ## Method 1b: Pattern Matching with regex
 
@@ -994,7 +992,7 @@ WHERE title ~* 'spider-man';
 
 ---
 
-[.footer: Slide 49 / 59]
+[.footer: Slide 49 / 60]
 
 ## Method 2: Full-Text Search
 
@@ -1018,7 +1016,7 @@ WHERE fulltext @@ to_tsquery('english', 'running');
 
 ---
 
-[.footer: Slide 50 / 59]
+[.footer: Slide 50 / 60]
 
 ## Full-Text Search Operators
 
@@ -1037,7 +1035,7 @@ WHERE fulltext @@ plainto_tsquery('dark knight batman');
 
 ---
 
-[.footer: Slide 51 / 59]
+[.footer: Slide 51 / 60]
 
 ## How Bluebox fulltext Column Works
 
@@ -1057,7 +1055,7 @@ CREATE INDEX film_fulltext_idx ON film USING gin(fulltext);
 
 ---
 
-[.footer: Slide 52 / 59]
+[.footer: Slide 52 / 60]
 
 ## Method 3: Vector Search (Semantic)
 
@@ -1078,11 +1076,10 @@ Real embeddings have 384-1536 dimensions from AI models
 
 ---
 
-[.footer: Slide 53 / 59]
+[.footer: Slide 53 / 60]
 
 ## Vector Search: Sample Data
 
-XXX - this is sort of duplicated from the earlier slide; probably fine, but wanted to mention
 ```sql
 -- Insert sample movies with fake embeddings
 -- Similar movies have similar vectors
@@ -1096,7 +1093,7 @@ INSERT INTO movie_vectors VALUES
 
 ---
 
-[.footer: Slide 54 / 59]
+[.footer: Slide 54 / 60]
 
 ## Vector Search: Finding Similar Movies
 
@@ -1121,7 +1118,7 @@ LIMIT 3;
 
 ---
 
-[.footer: Slide 55 / 59]
+[.footer: Slide 55 / 60]
 
 ## Vector Search: The Big Picture
 
@@ -1141,7 +1138,7 @@ LIMIT 3;
 
 ---
 
-[.footer: Slide 56 / 59]
+[.footer: Slide 56 / 60]
 
 ## Why Vector Search Matters
 
@@ -1157,7 +1154,7 @@ Great for AI/ML applications alongside your relational data
 
 ---
 
-[.footer: Slide 57 / 59]
+[.footer: Slide 57 / 60]
 
 ## When to Use Each Method
 
@@ -1173,7 +1170,18 @@ Combine them! Full-text for keywords, vectors for concepts
 
 ---
 
-[.footer: Slide 58 / 59]
+[.footer: Slide 58 / 60]
+
+## Further Reading
+
+- [Window Functions for Data Analysis with Postgres](https://www.crunchydata.com/blog/window-functions-for-data-analysis-with-postgres) (Crunchy)
+- [Postgres Subquery Powertools: CTEs, Window Functions, LATERAL](https://www.crunchydata.com/blog/postgres-subquery-powertools-subqueries-ctes-materialized-views-window-functions-and-lateral) (Crunchy)
+- [Creating Histograms with Postgres](https://www.crunchydata.com/blog/histograms-with-postgres) (Crunchy)
+- [Your COUNT(DISTINCT) Is Too Slow](https://www.snowflake.com/en/blog/engineering/postgres-count-distinct-approximation/) (Snowflake)
+
+---
+
+[.footer: Slide 59 / 60]
 
 ## Hour 2 Summary
 
@@ -1187,7 +1195,7 @@ Combine them! Full-text for keywords, vectors for concepts
 
 ---
 
-[.footer: Slide 59 / 59]
+[.footer: Slide 60 / 60]
 
 ## Questions?
 

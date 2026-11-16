@@ -1,6 +1,6 @@
 autoscale: true
 
-[.footer: Slide 1 / 52]
+[.footer: Slide 1 / 53]
 
 ## Postgres Troubleshooting
 <br>
@@ -9,7 +9,7 @@ autoscale: true
 
 ---
 
-[.footer: Slide 2 / 52]
+[.footer: Slide 2 / 53]
 
 ## Hour 4 Topics
 
@@ -30,16 +30,15 @@ Sample database:
 
 ### github.com/ryanbooz/bluebox
 
-
 ---
 
-[.footer: Slide 3 / 52]
+[.footer: Slide 3 / 53]
 
 ## Postgres Internal Catalogs
 
 ---
 
-[.footer: Slide 4 / 52]
+[.footer: Slide 4 / 53]
 
 ## The System Catalog
 
@@ -51,7 +50,7 @@ PostgreSQL stores everything as tables - even metadata
 
 ---
 
-[.footer: Slide 5 / 52]
+[.footer: Slide 5 / 53]
 
 ## Essential System Catalogs
 
@@ -66,7 +65,7 @@ PostgreSQL stores everything as tables - even metadata
 
 ---
 
-[.footer: Slide 6 / 52]
+[.footer: Slide 6 / 53]
 
 ## Exploring pg_class
 
@@ -91,7 +90,7 @@ WHERE relnamespace = 'bluebox'::regnamespace
 
 ---
 
-[.footer: Slide 7 / 52]
+[.footer: Slide 7 / 53]
 
 ## pg\_stat\_activity - Active Sessions
 
@@ -112,7 +111,7 @@ WHERE datname = 'bluebox'
 
 ---
 
-[.footer: Slide 8 / 52]
+[.footer: Slide 8 / 53]
 
 ## pg\_stat\_user\_tables
 
@@ -136,7 +135,7 @@ WHERE schemaname = 'bluebox' ORDER BY n_live_tup DESC LIMIT 5;
 
 ---
 
-[.footer: Slide 9 / 52]
+[.footer: Slide 9 / 53]
 
 ## pg\_stat\_user\_indexes
 
@@ -162,7 +161,7 @@ Find unused indexes with `WHERE idx_scan = 0`
 
 ---
 
-[.footer: Slide 10 / 52]
+[.footer: Slide 10 / 53]
 
 ## pg_locks - Lock Information
 
@@ -181,13 +180,13 @@ WHERE NOT l.granted;  -- Waiting locks
 
 ---
 
-[.footer: Slide 11 / 52]
+[.footer: Slide 11 / 53]
 
 ![fit](diagrams/lock-types.png)
 
 ---
 
-[.footer: Slide 12 / 52]
+[.footer: Slide 12 / 53]
 
 ## Find the Source of a Lock
 
@@ -216,13 +215,13 @@ ORDER BY lock_depth;
 
 ---
 
-[.footer: Slide 13 / 52]
+[.footer: Slide 13 / 53]
 
 ## Logging
 
 ---
 
-[.footer: Slide 14 / 52]
+[.footer: Slide 14 / 53]
 
 ## Why Logging Matters
 
@@ -236,7 +235,7 @@ Logs are like insurance - you may not need them every day, but when you have a p
 
 ---
 
-[.footer: Slide 15 / 52]
+[.footer: Slide 15 / 53]
 
 ## Check Current Settings
 
@@ -254,7 +253,7 @@ Let's enable file-based logging!
 
 ---
 
-[.footer: Slide 16 / 52]
+[.footer: Slide 16 / 53]
 
 ## Enable Logging Collector
 
@@ -271,7 +270,7 @@ ALTER SYSTEM SET log_filename = 'postgresql.log';
 
 ---
 
-[.footer: Slide 17 / 52]
+[.footer: Slide 17 / 53]
 
 ## Restart Container
 
@@ -286,7 +285,7 @@ This restarts PostgreSQL with logging enabled, writing to `logs/postgresql.log`.
 
 ---
 
-[.footer: Slide 18 / 52]
+[.footer: Slide 18 / 53]
 
 ## Start Tailing Logs
 
@@ -301,7 +300,7 @@ Keep this running! You'll see log entries appear in real-time as we make changes
 
 ---
 
-[.footer: Slide 19 / 52]
+[.footer: Slide 19 / 53]
 
 ## Log Severity Levels
 
@@ -323,7 +322,7 @@ SHOW log_min_messages;
 
 ---
 
-[.footer: Slide 20 / 52]
+[.footer: Slide 20 / 53]
 
 ## Log SQL Statements
 
@@ -347,7 +346,7 @@ SELECT title FROM bluebox.film LIMIT 3;
 
 ---
 
-[.footer: Slide 21 / 52]
+[.footer: Slide 21 / 53]
 
 ## See It in the Log
 
@@ -366,7 +365,7 @@ SELECT pg_reload_conf();
 
 ---
 
-[.footer: Slide 22 / 52]
+[.footer: Slide 22 / 53]
 
 ## Log DDL Changes
 
@@ -387,7 +386,7 @@ Check your tail window - only CREATE and DROP appear!
 
 ---
 
-[.footer: Slide 23 / 52]
+[.footer: Slide 23 / 53]
 
 ## Log Slow Queries
 
@@ -411,7 +410,7 @@ SELECT pg_sleep(0.2);
 
 ---
 
-[.footer: Slide 24 / 52]
+[.footer: Slide 24 / 53]
 
 ## Log SQL Errors
 
@@ -437,7 +436,7 @@ STATEMENT:  SELECT * FROM bluebox.nonexistent_table;
 
 ---
 
-[.footer: Slide 25 / 52]
+[.footer: Slide 25 / 53]
 
 ## Log Line Prefix
 
@@ -465,7 +464,7 @@ SELECT pg_reload_conf();
 
 ---
 
-[.footer: Slide 26 / 52]
+[.footer: Slide 26 / 53]
 
 ## Log Lock Waits
 
@@ -479,7 +478,7 @@ SELECT pg_reload_conf();
 
 ---
 
-[.footer: Slide 27 / 52]
+[.footer: Slide 27 / 53]
 
 ## Simulate a Lock Wait
 
@@ -503,7 +502,7 @@ Wait 1+ seconds, then check your log tail! Then `COMMIT;` in Terminal 1.
 
 ---
 
-[.footer: Slide 28 / 52]
+[.footer: Slide 28 / 53]
 
 ## pgAudit: Detailed Audit Logging
 
@@ -518,11 +517,11 @@ ALTER SYSTEM SET pgaudit.log = 'ddl, write';
 SELECT pg_reload_conf();
 ```
 
-This is out of scope for the training / bluebox - try on your own time. 
+This is out of scope for the training / bluebox - try on your own time.
 
 ---
 
-[.footer: Slide 29 / 52]
+[.footer: Slide 29 / 53]
 
 ## pgAudit: Example Output
 
@@ -546,13 +545,13 @@ Shows: audit type, statement ID, object type, object name, full SQL.
 
 ---
 
-[.footer: Slide 30 / 52]
+[.footer: Slide 30 / 53]
 
 ## Finding and Killing Problems
 
 ---
 
-[.footer: Slide 31 / 52]
+[.footer: Slide 31 / 53]
 
 ## Common Problems
 
@@ -564,7 +563,7 @@ Shows: audit type, statement ID, object type, object name, full SQL.
 
 ---
 
-[.footer: Slide 32 / 52]
+[.footer: Slide 32 / 53]
 
 ## Finding Long-Running Queries
 
@@ -583,7 +582,7 @@ LIMIT 10;
 
 ---
 
-[.footer: Slide 33 / 52]
+[.footer: Slide 33 / 53]
 
 ## Finding Idle Transactions
 
@@ -603,7 +602,7 @@ ORDER BY xact_start;
 
 ---
 
-[.footer: Slide 34 / 52]
+[.footer: Slide 34 / 53]
 
 ## Finding Blocked Queries
 
@@ -624,7 +623,7 @@ WHERE NOT blocked_locks.granted;
 
 ---
 
-[.footer: Slide 35 / 52]
+[.footer: Slide 35 / 53]
 
 ## Canceling a Query
 
@@ -639,7 +638,7 @@ The query receives an interrupt and can clean up
 
 ---
 
-[.footer: Slide 36 / 52]
+[.footer: Slide 36 / 53]
 
 ## Terminating a Connection
 
@@ -656,7 +655,7 @@ WHERE datname = 'bluebox'
 
 ---
 
-[.footer: Slide 37 / 52]
+[.footer: Slide 37 / 53]
 
 ## Statement Timeout
 
@@ -678,7 +677,7 @@ ALTER ROLE app_user SET statement_timeout = '60s';
 
 ---
 
-[.footer: Slide 38 / 52]
+[.footer: Slide 38 / 53]
 
 ## Idle Transaction Timeout
 
@@ -694,7 +693,7 @@ ALTER ROLE app_user SET idle_in_transaction_session_timeout = '5min';
 
 ---
 
-[.footer: Slide 39 / 52]
+[.footer: Slide 39 / 53]
 
 ## Lock Timeout
 
@@ -712,7 +711,7 @@ ALTER TABLE bluebox.rental ADD COLUMN new_col INT;
 
 ---
 
-[.footer: Slide 40 / 52]
+[.footer: Slide 40 / 53]
 
 ## Monitor Postgres
 
@@ -724,7 +723,7 @@ ALTER TABLE bluebox.rental ADD COLUMN new_col INT;
 
 ---
 
-[.footer: Slide 41 / 52]
+[.footer: Slide 41 / 53]
 
 ## What to Monitor
 
@@ -748,7 +747,7 @@ ALTER TABLE bluebox.rental ADD COLUMN new_col INT;
 
 ---
 
-[.footer: Slide 42 / 52]
+[.footer: Slide 42 / 53]
 
 ## Key Metrics to Watch
 
@@ -768,7 +767,7 @@ WHERE datname = 'bluebox';
 
 ---
 
-[.footer: Slide 43 / 52]
+[.footer: Slide 43 / 53]
 
 ## Cache Hit Ratio
 
@@ -787,7 +786,7 @@ WHERE datname = 'bluebox';
 
 ---
 
-[.footer: Slide 44 / 52]
+[.footer: Slide 44 / 53]
 
 ## Monitoring Tools
 
@@ -801,7 +800,7 @@ WHERE datname = 'bluebox';
 
 ---
 
-[.footer: Slide 45 / 52]
+[.footer: Slide 45 / 53]
 
 ## Simple Health Check Query
 
@@ -829,13 +828,13 @@ FROM pg_stat_activity;
 
 ---
 
-[.footer: Slide 46 / 52]
+[.footer: Slide 46 / 53]
 
 ## Getting Help from the Community
 
 ---
 
-[.footer: Slide 47 / 52]
+[.footer: Slide 47 / 53]
 
 ## PostgreSQL Community Resources
 
@@ -847,7 +846,7 @@ FROM pg_stat_activity;
 
 ---
 
-[.footer: Slide 48 / 52]
+[.footer: Slide 48 / 53]
 
 ## Before Asking for Help
 
@@ -862,7 +861,7 @@ Gather this information:
 
 ---
 
-[.footer: Slide 49 / 52]
+[.footer: Slide 49 / 53]
 
 ## Good Question Example
 
@@ -878,7 +877,7 @@ Gather this information:
 
 ---
 
-[.footer: Slide 50 / 52]
+[.footer: Slide 50 / 53]
 
 ## Other Resources
 
@@ -890,7 +889,16 @@ Gather this information:
 
 ---
 
-[.footer: Slide 51 / 52]
+[.footer: Slide 51 / 53]
+
+## Further Reading
+
+- [Postgres Internals Hiding in Plain Sight](https://www.crunchydata.com/blog/postgres-internals-hiding-in-plain-sight) (Crunchy)
+- [Postgres Logging for Performance Optimization](https://www.crunchydata.com/blog/postgres-logging-for-performance-optimization) (Crunchy)
+
+---
+
+[.footer: Slide 52 / 53]
 
 ## Hour 4 Summary
 
@@ -904,7 +912,7 @@ Gather this information:
 
 ---
 
-[.footer: Slide 52 / 52]
+[.footer: Slide 53 / 53]
 
 ## Questions?
 

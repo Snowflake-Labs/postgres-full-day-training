@@ -1,7 +1,7 @@
 autoscale: true
 
+[.footer: Slide 1 / 67]
 
-[.footer: Slide 1 / 65]
 
 ## PostgreSQL for the Absolute Beginner
 <br>
@@ -10,20 +10,18 @@ autoscale: true
 
 ---
 
-
-[.footer: Slide 2 / 65]
+[.footer: Slide 2 / 67]
 
 ## About This Training
 
 - Full day PostgreSQL training
-- 6 hours with 90 minute lunch break
+- 6 hours with 60 minute lunch break
 - Sample code and exercises available
 - 3 experts to answer your questions
 
 ---
 
-
-[.footer: Slide 3 / 65]
+[.footer: Slide 3 / 67]
 
 ## Today's Agenda
 
@@ -38,8 +36,7 @@ autoscale: true
 
 ---
 
-
-[.footer: Slide 4 / 65]
+[.footer: Slide 4 / 67]
 
 ## Training Materials
 
@@ -58,12 +55,18 @@ Sample database:
 
 postgres.app for macs will create a psql connection
 
+---
 
+[.footer: Slide 5 / 67]
+
+# We're LLM friendly
+
+- Feel free to use your favorite LLM for help with Postgres. 
+- Snowflake **Coco** has a skill for Postgres that is very good
 
 ---
 
-
-[.footer: Slide 5 / 65]
+[.footer: Slide 6 / 67]
 
 ## Let's Get Connected!
 
@@ -78,8 +81,7 @@ postgres.app for macs will create a psql connection
 
 ---
 
-
-[.footer: Slide 6 / 65]
+[.footer: Slide 7 / 67]
 
 ## Prerequisites
 
@@ -97,8 +99,7 @@ docker compose version
 
 ---
 
-
-[.footer: Slide 7 / 65]
+[.footer: Slide 8 / 67]
 
 ## Step 1: Clone the Repository
 
@@ -114,7 +115,7 @@ Or download as ZIP from GitHub if you don't have git.
 
 ---
 
-[.footer: Slide 8 / 65]
+[.footer: Slide 9 / 67]
 
 ## Step 2: Start PostgreSQL
 
@@ -135,7 +136,7 @@ abc123...      postgis/postgis:18-3.6   Up 10 seconds  0.0.0.0:5432->5432/tcp
 
 ---
 
-[.footer: Slide 9 / 65]
+[.footer: Slide 10 / 67]
 
 ## Step 3: Install a psql Client
 
@@ -167,7 +168,7 @@ Cross-Platform GUIs
 
 ---
 
-[.footer: Slide 10 / 65]
+[.footer: Slide 11 / 67]
 
 ## Mac: Homebrew (Recommended)
 
@@ -187,7 +188,7 @@ Alternative: Install Postgres.app and use its bundled psql.
 
 ---
 
-[.footer: Slide 11 / 65]
+[.footer: Slide 12 / 67]
 
 ## Windows / GUI Users
 
@@ -204,7 +205,7 @@ pgAdmin includes a Query Tool that works like psql.
 
 ---
 
-[.footer: Slide 12 / 65]
+[.footer: Slide 13 / 67]
 
 ## Step 4: Connect to PostgreSQL
 
@@ -226,7 +227,7 @@ You're connected! 🎉
 
 ---
 
-[.footer: Slide 13 / 65]
+[.footer: Slide 14 / 67]
 
 ## Step 5: Create Database and Load Bluebox
 
@@ -253,7 +254,7 @@ psql postgresql://postgres:training@localhost:5432/bluebox -f bluebox_data.sql
 
 ---
 
-[.footer: Slide 14 / 65]
+[.footer: Slide 15 / 67]
 
 ## Step 6: Verify Your Setup
 
@@ -279,7 +280,7 @@ If you see 7836 films, you're all set! ✅
 
 ---
 
-[.footer: Slide 15 / 65]
+[.footer: Slide 16 / 67]
 
 ## Troubleshooting: Last Resort
 
@@ -299,7 +300,7 @@ This works but isn't ideal for learning psql workflows.
 
 ---
 
-[.footer: Slide 16 / 65]
+[.footer: Slide 17 / 67]
 
 ## Why Postgres?
 
@@ -318,7 +319,7 @@ This works but isn't ideal for learning psql workflows.
 
 ---
 
-[.footer: Slide 17 / 65]
+[.footer: Slide 18 / 67]
 
 ## Running Postgres
 
@@ -326,7 +327,7 @@ This works but isn't ideal for learning psql workflows.
 
 ---
 
-[.footer: Slide 18 / 65]
+[.footer: Slide 19 / 67]
 
 ## Running Postgres - Options
 
@@ -348,7 +349,7 @@ This works but isn't ideal for learning psql workflows.
 
 ---
 
-[.footer: Slide 19 / 65]
+[.footer: Slide 20 / 67]
 
 ## Connecting to PostgreSQL
 
@@ -366,7 +367,7 @@ Connection to remote locations
 
 ---
 
-[.footer: Slide 20 / 65]
+[.footer: Slide 21 / 67]
 
 ## GUI Tools
 
@@ -388,13 +389,13 @@ Connection to remote locations
 
 ---
 
-[.footer: Slide 21 / 65]
+[.footer: Slide 22 / 67]
 
 ## psql Introduction
 
 ---
 
-[.footer: Slide 22 / 65]
+[.footer: Slide 23 / 67]
 
 ## psql - The Postgres CLI
 
@@ -409,7 +410,7 @@ bluebox=#
 
 ---
 
-[.footer: Slide 23 / 65]
+[.footer: Slide 24 / 67]
 
 ## Essential psql Commands
 
@@ -425,7 +426,7 @@ bluebox=#
 
 ---
 
-[.footer: Slide 24 / 65]
+[.footer: Slide 25 / 67]
 
 ## More psql Commands
 
@@ -439,7 +440,7 @@ bluebox=#
 
 ---
 
-[.footer: Slide 25 / 65]
+[.footer: Slide 26 / 67]
 
 ## psql Tips
 
@@ -461,7 +462,7 @@ SELECT * FROM film;
 
 ---
 
-[.footer: Slide 26 / 65]
+[.footer: Slide 27 / 67]
 
 ## psql Formatting
 
@@ -478,7 +479,7 @@ Default output can be messy when columns are wide:
 
 ---
 
-[.footer: Slide 27 / 65]
+[.footer: Slide 28 / 67]
 
 ## Expanded Display: \x auto
 
@@ -501,7 +502,7 @@ email | alice@test.com
 
 ---
 
-[.footer: Slide 28 / 65]
+[.footer: Slide 29 / 67]
 
 ## Pretty Unicode Borders
 
@@ -510,7 +511,7 @@ email | alice@test.com
 \pset border 2
 ```
 
-```
+```text
 ┌────┬───────┬─────┐
 │ id │ name  │ age │
 ├────┼───────┼─────┤
@@ -523,7 +524,7 @@ Makes output much easier to read!
 
 ---
 
-[.footer: Slide 29 / 65]
+[.footer: Slide 30 / 67]
 
 ## More Useful psql Settings
 
@@ -550,7 +551,7 @@ on host "localhost" at port "5432".
 
 ---
 
-[.footer: Slide 30 / 65]
+[.footer: Slide 31 / 67]
 
 ## Making NULLs Visible
 
@@ -573,13 +574,13 @@ Now you can clearly see which values are actually NULL!
 
 ---
 
-[.footer: Slide 31 / 65]
+[.footer: Slide 32 / 67]
 
 ## Users and Permissions
 
 ---
 
-[.footer: Slide 32 / 65]
+[.footer: Slide 33 / 67]
 
 ## Postgres Roles
 
@@ -595,7 +596,7 @@ CREATE ROLE readonly;
 
 ---
 
-[.footer: Slide 33 / 65]
+[.footer: Slide 34 / 67]
 
 ## Role Attributes
 
@@ -615,7 +616,7 @@ Common attributes:
 
 ---
 
-[.footer: Slide 34 / 65]
+[.footer: Slide 35 / 67]
 
 ## ⚠️ Password Security: Don't Do This!
 
@@ -638,7 +639,7 @@ Enter it again: ********
 
 ---
 
-[.footer: Slide 35 / 65]
+[.footer: Slide 36 / 67]
 
 ## Password Hashing in Postgres
 
@@ -652,7 +653,7 @@ Hashed passwords are stored in `pg_authid.rolpassword`
 
 ---
 
-[.footer: Slide 36 / 65]
+[.footer: Slide 37 / 67]
 
 ## Password Best Practices
 
@@ -673,7 +674,7 @@ WHERE rolpassword LIKE 'md5%';
 
 ---
 
-[.footer: Slide 37 / 65]
+[.footer: Slide 38 / 67]
 
 ## Granting Privileges
 
@@ -693,7 +694,7 @@ GRANT SELECT, INSERT, UPDATE ON bluebox.rental TO app_user;
 
 ---
 
-[.footer: Slide 38 / 65]
+[.footer: Slide 39 / 67]
 
 ## Manage Privileges with Groups
 
@@ -711,7 +712,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA bluebox TO data_analytics;
 
 ---
 
-[.footer: Slide 39 / 65]
+[.footer: Slide 40 / 67]
 
 ## Grant Users Role Membership
 
@@ -728,7 +729,7 @@ GRANT data_analytics TO maria;
 
 ---
 
-[.footer: Slide 40 / 65]
+[.footer: Slide 41 / 67]
 
 ## View Role Memberships
 
@@ -750,7 +751,7 @@ Maria is a member of `data_analytics` - she inherits its permissions!
 
 ---
 
-[.footer: Slide 41 / 65]
+[.footer: Slide 42 / 67]
 
 ## Schemas
 
@@ -758,7 +759,7 @@ Maria is a member of `data_analytics` - she inherits its permissions!
 
 ---
 
-[.footer: Slide 42 / 65]
+[.footer: Slide 43 / 67]
 
 ## What is a Schema?
 
@@ -770,7 +771,7 @@ A **schema** is a namespace within a database
 
 ---
 
-[.footer: Slide 43 / 65]
+[.footer: Slide 44 / 67]
 
 ## Default Schema
 
@@ -784,7 +785,7 @@ CREATE TABLE public.my_table (id int);
 
 ---
 
-[.footer: Slide 44 / 65]
+[.footer: Slide 45 / 67]
 
 ## Creating Schemas
 
@@ -800,7 +801,7 @@ Bluebox uses `bluebox` schema to organize all its tables
 
 ---
 
-[.footer: Slide 45 / 65]
+[.footer: Slide 46 / 67]
 
 ## Schema Search Path
 
@@ -818,7 +819,7 @@ SELECT * FROM film;  -- Same as bluebox.film
 
 ---
 
-[.footer: Slide 46 / 65]
+[.footer: Slide 47 / 67]
 
 ## Bluebox Schema
 
@@ -841,7 +842,7 @@ SET search_path TO bluebox, public;
 
 ---
 
-[.footer: Slide 47 / 65]
+[.footer: Slide 48 / 67]
 
 ## ALTER User Search Path
 
@@ -855,13 +856,13 @@ SELECT * FROM film;  -- Same as bluebox.film
 
 ---
 
-[.footer: Slide 48 / 65]
+[.footer: Slide 49 / 67]
 
 ## Object and Data Types
 
 ---
 
-[.footer: Slide 49 / 65]
+[.footer: Slide 50 / 67]
 
 ## Database Objects
 
@@ -873,7 +874,7 @@ SELECT * FROM film;  -- Same as bluebox.film
 
 ---
 
-[.footer: Slide 50 / 65]
+[.footer: Slide 51 / 67]
 
 ## Common Data Types
 
@@ -904,7 +905,7 @@ Other
 
 ---
 
-[.footer: Slide 51 / 65]
+[.footer: Slide 52 / 67]
 
 ## ⏰ Time: Use TIMESTAMPTZ!
 
@@ -927,7 +928,7 @@ TIMESTAMPTZ handles daylight saving automatically!
 
 ---
 
-[.footer: Slide 52 / 65]
+[.footer: Slide 53 / 67]
 
 ## 💰 Use NUMERIC, Not MONEY!
 
@@ -957,7 +958,7 @@ NUMERIC stores exact values - no floating point errors!
 
 ---
 
-[.footer: Slide 53 / 65]
+[.footer: Slide 54 / 67]
 
 ## 🎯 Custom Data Types: ENUM
 
@@ -985,7 +986,7 @@ WHERE rating = 'PG-13' LIMIT 3;
 
 ---
 
-[.footer: Slide 54 / 65]
+[.footer: Slide 55 / 67]
 
 ## Creating a Table
 
@@ -1004,7 +1005,7 @@ CREATE TABLE bluebox.customer_review (
 
 ---
 
-[.footer: Slide 55 / 65]
+[.footer: Slide 56 / 67]
 
 ## Add Yourself as a Customer
 
@@ -1031,7 +1032,7 @@ Note: this is a great use of the Postgres feature `RETURNING`
 
 ---
 
-[.footer: Slide 56 / 65]
+[.footer: Slide 57 / 67]
 
 ## Find Films to Review
 
@@ -1053,7 +1054,7 @@ WHERE title IN ('The Dark Knight', 'Inception',
 
 ---
 
-[.footer: Slide 57 / 65]
+[.footer: Slide 58 / 67]
 
 ## Insert Your Reviews
 
@@ -1069,10 +1070,9 @@ VALUES
     (205026, 693134, 5, 'Even better than the first Dune!');
 ```
 
-
 ---
 
-[.footer: Slide 58 / 65]
+[.footer: Slide 59 / 67]
 
 ## Querying Your Reviews
 
@@ -1096,7 +1096,7 @@ ORDER BY r.created_at DESC;
 
 ---
 
-[.footer: Slide 59 / 65]
+[.footer: Slide 60 / 67]
 
 ## Bluebox Tables
 
@@ -1119,13 +1119,13 @@ ORDER BY r.created_at DESC;
 
 ---
 
-[.footer: Slide 60 / 65]
+[.footer: Slide 61 / 67]
 
 ## Extensions
 
 ---
 
-[.footer: Slide 61 / 65]
+[.footer: Slide 62 / 67]
 
 ## What are Extensions?
 
@@ -1138,7 +1138,7 @@ Extensions add functionality to Postgres:
 
 ---
 
-[.footer: Slide 62 / 65]
+[.footer: Slide 63 / 67]
 
 ## Contrib Extensions
 
@@ -1159,7 +1159,7 @@ Bundled with Postgres - just `CREATE EXTENSION name;`
 
 ---
 
-[.footer: Slide 63 / 65]
+[.footer: Slide 64 / 67]
 
 ## Popular Third-Party Extensions
 
@@ -1171,7 +1171,21 @@ Bundled with Postgres - just `CREATE EXTENSION name;`
 
 ---
 
-[.footer: Slide 64 / 65]
+[.footer: Slide 65 / 67]
+
+## Further Reading
+
+- [Get Started With the Postgres Command Line psql](https://www.snowflake.com/en/engineering-blog/get-started-postgres-command-line-psql/) (Snowflake)
+- [Magic Tricks for Postgres psql](https://www.crunchydata.com/blog/magic-tricks-for-postgres-psql-settings-presets-cho-and-saved-queries) (Crunchy)
+- [Working with Time in Postgres](https://www.crunchydata.com/blog/working-with-time-in-postgres) (Crunchy)
+- [Working with Money in Postgres](https://www.crunchydata.com/blog/working-with-money-in-postgres) (Crunchy)
+- [What Should My Postgres Primary Key Be?](https://www.snowflake.com/en/developers/blog/postgres-primary-keys/) (Snowflake)
+- [Postgres Serials Should be BIGINT](https://www.crunchydata.com/blog/postgres-serials-should-be-bigint-and-how-to-migrate) (Crunchy)
+- [Crunchy Data Postgres Playground (browser-based tutorials)](https://www.crunchydata.com/developers/playground) (Crunchy)
+
+---
+
+[.footer: Slide 66 / 67]
 
 ## Hour 1 Summary
 
@@ -1186,7 +1200,7 @@ Bundled with Postgres - just `CREATE EXTENSION name;`
 
 ---
 
-[.footer: Slide 65 / 65]
+[.footer: Slide 67 / 67]
 
 ## Questions?
 
